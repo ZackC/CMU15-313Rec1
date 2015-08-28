@@ -14,7 +14,8 @@ public class Menu {
     System.out.println("Welcome to the Nubmer Guessing Game!");
     System.out.println("Type 1 to start a new game");
     System.out.println("Type 2 to start a new game with a user selected max value.");
-    System.out.println("Type 3 to quit");
+    System.out.println("Type 3 to display author info.");
+    System.out.println("Type 4 to quit");
   }
   
   public void promptUserInput(){
@@ -39,8 +40,9 @@ public class Menu {
 	    		GuessingGameLogic gg = new GuessingGameLogic(scan,choice);
 		    	gg.guessingGame();
 	    	}
-	    	
-	    }else if(choice == 3){
+	    }else if(choice == 3){	    	
+	    	printAuthorInfo();
+	    }else if(choice == 4){
 	    	System.exit(0);
 	    } else{
 	    	printErrorMessage();
@@ -52,5 +54,9 @@ public class Menu {
   
   public void printErrorMessage(){
 	  System.err.println("Invalid input.  Please start again.");
+  }
+  
+  public void printAuthorInfo(){
+	  System.out.println("Joe Code - Best Programmer Ever");
   }
 }
