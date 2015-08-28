@@ -13,7 +13,8 @@ public class Menu {
   public void displayMenu(){
     System.out.println("Welcome to the Nubmer Guessing Game!");
     System.out.println("Type 1 to start a new game");
-    System.out.println("Type 2 to quit");
+    System.out.println("Type 2 to start a new game with a user selected max value.");
+    System.out.println("Type 3 to quit");
   }
   
   public void promptUserInput(){
@@ -26,6 +27,20 @@ public class Menu {
 	    	GuessingGameLogic gg = new GuessingGameLogic(scan);
 	    	gg.guessingGame();
 	    }else if(choice == 2){
+	    	System.out.print("Please enter a max value: ");
+	    	try{
+	    	    choice = scan.nextInt();
+	    	}catch(IllegalStateException e){
+	    		printErrorMessage();
+	    	}
+	    	if(choice < 1){
+	    		printErrorMessage();
+	    	}else{
+	    		GuessingGameLogic gg = new GuessingGameLogic(scan,choice);
+		    	gg.guessingGame();
+	    	}
+	    	
+	    }else if(choice == 3){
 	    	System.exit(0);
 	    } else{
 	    	printErrorMessage();

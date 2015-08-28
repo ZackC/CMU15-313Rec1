@@ -12,12 +12,17 @@ public class GuessingGameLogic {
 	public GuessingGameLogic(Scanner scan){
 		this.scan = scan;
 	}
+	
+	public GuessingGameLogic(Scanner scan, int maxValue){
+		this.scan = scan;
+		this.maxValue = maxValue;
+	}
 
 	public void guessingGame(){
 		boolean stillPlaying = true;
 		System.out.println("Guess the number between 0 and "+maxValue+".");
 		Random rand = new Random();
-		numberToGuess = rand.nextInt(maxValue);
+		numberToGuess = rand.nextInt(maxValue+1);
 		while(stillPlaying){
 			int userInput = promptUser();
 			if(numberToGuess < userInput){
